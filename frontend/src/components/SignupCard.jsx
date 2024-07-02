@@ -15,6 +15,7 @@ import {
 	Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { Image } from "@chakra-ui/image";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useSetRecoilState } from "recoil";
 import authScreenAtom from "../atoms/authAtom";
@@ -59,11 +60,14 @@ export default function SignupCard() {
 
 	return (
 		<Flex align={"center"} justify={"center"}>
-			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={1} px={6}>
+			
 				<Stack align={"center"}>
-					<Heading fontSize={"4xl"} textAlign={"center"}>
-						Sign up
+				<Heading textColor={"#096260"} fontSize={"5xl"} textAlign={"center"}>
+						Uni Chat
 					</Heading>
+
+				<Image src='/icon.png' rounded={50} w={16} h={16} ml={1} />
 				</Stack>
 				<Box rounded={"lg"} bg={useColorModeValue("white", "gray.dark")} boxShadow={"lg"} p={8}>
 					<Stack spacing={4}>

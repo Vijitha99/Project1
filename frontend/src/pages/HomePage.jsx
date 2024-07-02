@@ -33,6 +33,20 @@ const HomePage = () => {
 	}, [showToast, setPosts]);
 
 	return (
+<>
+		<Flex w={"full"}>
+				
+				<Flex
+					flex={1}
+					borderBottom={"1px solid gray"}
+					justifyContent={"center"}
+					color={"gray.light"}
+					pb='2'
+					cursor={"pointer"}
+				>
+					
+				</Flex>
+			</Flex>
 		<Flex gap='10' alignItems={"flex-start"}>
 			<Box flex={70}>
 				{!loading && posts.length === 0 && <h1>Follow some users to see the feed</h1>}
@@ -44,7 +58,7 @@ const HomePage = () => {
 				)}
 
 				{posts.map((post) => (
-					<Post key={post._id} post={post} postedBy={post.postedBy} />
+					<Post key={post._id} post={post} postedBy={post.postedBy}  />
 				))}
 			</Box>
 			<Box
@@ -56,7 +70,8 @@ const HomePage = () => {
 			>
 				<SuggestedUsers />
 			</Box>
-		</Flex>
+			</Flex>
+			</>
 	);
 };
 

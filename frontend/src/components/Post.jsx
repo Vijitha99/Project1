@@ -60,7 +60,7 @@ const Post = ({ post, postedBy }) => {
 	if (!user) return null;
 	return (
 		<Link to={`/${user.username}/post/${post._id}`}>
-			<Flex gap={3} mb={4} py={5}>
+			<Flex gap={2} mb={4} py={5}>
 				<Flex flexDirection={"column"} alignItems={"center"}>
 					<Avatar
 						size='md'
@@ -73,7 +73,7 @@ const Post = ({ post, postedBy }) => {
 					/>
 					<Box w='1px' h={"full"} bg='gray.light' my={2}></Box>
 					<Box position={"relative"} w={"full"}>
-						{post.replies.length === 0 && <Text textAlign={"center"}>🥱</Text>}
+						{post.replies.length === 0 && <Text textAlign={"center"}>👨‍🎓</Text>}
 						{post.replies[0] && (
 							<Avatar
 								size='xs'

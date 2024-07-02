@@ -1,4 +1,4 @@
-import { Button, Flex, Image, Link, useColorMode } from "@chakra-ui/react";
+import { Button, Flex, Image, Link, useColorMode,Heading  } from "@chakra-ui/react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { AiFillHome } from "react-icons/ai";
@@ -17,6 +17,14 @@ const Header = () => {
 	const setAuthScreen = useSetRecoilState(authScreenAtom);
 
 	return (
+		< >
+			{user && (
+			<Heading textColor={"#096260"} fontSize={"3xl"} textAlign={"left"} mt={5}>
+					Uni Chat
+				</Heading>
+			)}
+				
+
 		<Flex justifyContent={"space-between"} mt={6} mb='12'>
 			{user && (
 				<Link as={RouterLink} to='/'>
@@ -24,20 +32,25 @@ const Header = () => {
 				</Link>
 			)}
 			{!user && (
-				<Link as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("login")}>
+					<Link fontWeight={"bold"} as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("login")}>
 					Login
 				</Link>
 			)}
 
-			<Image
+<Image
 				cursor={"pointer"}
-				alt='logo'
+					alt='logo'
+					mr={80}
 				w={6}
 				src={colorMode === "dark" ? "/light-logo.svg" : "/dark-logo.svg"}
 				onClick={toggleColorMode}
 			/>
 
-			{user && (
+		
+
+				{user && (
+					
+					
 				<Flex alignItems={"center"} gap={4}>
 					<Link as={RouterLink} to={`/${user.username}`}>
 						<RxAvatar size={24} />
@@ -51,15 +64,19 @@ const Header = () => {
 					<Button size={"xs"} onClick={logout}>
 						<FiLogOut size={20} />
 					</Button>
-				</Flex>
+						</Flex>
+						
 			)}
 
 			{!user && (
-				<Link as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("signup")}>
+				<Link fontWeight={"bold"} as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("signup")}>
 					Sign up
 				</Link>
 			)}
-		</Flex>
+			</Flex>
+
+			
+			</>
 	);
 };
 

@@ -13,6 +13,7 @@ import {
 	useColorModeValue,
 	Link,
 } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/image";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useSetRecoilState } from "recoil";
@@ -56,11 +57,13 @@ export default function LoginCard() {
 	};
 	return (
 		<Flex align={"center"} justify={"center"}>
-			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={1} px={6}>
 				<Stack align={"center"}>
-					<Heading fontSize={"4xl"} textAlign={"center"}>
-						Login
+				<Heading textColor={"#096260"} fontSize={"5xl"} textAlign={"center"}>
+						Uni Chat
 					</Heading>
+
+				<Image src='/icon.png' rounded={50} w={16} h={16} ml={1} />
 				</Stack>
 				<Box
 					rounded={"lg"}
@@ -74,11 +77,11 @@ export default function LoginCard() {
 				>
 					<Stack spacing={4}>
 						<FormControl isRequired>
-							<FormLabel>Username</FormLabel>
+							<FormLabel>Your Institution Email</FormLabel>
 							<Input
 								type='text'
-								value={inputs.username}
-								onChange={(e) => setInputs((inputs) => ({ ...inputs, username: e.target.value }))}
+								value={inputs.email}
+								onChange={(e) => setInputs((inputs) => ({ ...inputs, email: e.target.value }))}
 							/>
 						</FormControl>
 						<FormControl isRequired>
